@@ -137,7 +137,7 @@ const Hero = () => {
             <div key={i} className="flex flex-col items-center">
               <span className="text-2xl md:text-3xl font-bold text-secondaryGreen tracking-tight mb-0.5">
                 <AnimatedCounter end={stat.num} duration={2.5} />
-                {stat.label.includes('Rate') ? '%' : '+'}
+                {stat.label.includes('Rate') ? '%' : stat.num === 0 ? '' : '+'}
               </span>
               <span className="text-xs md:text-sm text-slate-600 dark:text-gray-400 font-medium">{stat.label}</span>
             </div>

@@ -16,7 +16,7 @@ export const portfolioData = {
   stats: [
     { num: Math.floor((new Date() - new Date('2022-07-01')) / (1000 * 60 * 60 * 24 * 365)), label: "Years Experience" },
     { num: 5, label: "Major Projects" },
-    { num: 2000, label: "Active Users" },
+    { num: 0, label: "Unresolved Bugs" },
     { num: 95, label: "Accuracy Rate" }
   ],
   skills: [
