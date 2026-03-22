@@ -28,7 +28,7 @@ const Hero = () => {
   // Degrade 3D for low-end devices
   const [isLowEnd, setIsLowEnd] = useState(false);
   useEffect(() => {
-    if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) {
+    if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2) {
       setIsLowEnd(true);
     }
   }, []);
