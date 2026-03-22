@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Dark background rounded square -->
+  <rect width="32" height="32" rx="7" fill="#092014"/>
+  <!-- Laptop base -->
+  <rect x="5" y="20" width="22" height="3" rx="1.5" fill="#34d399"/>
+  <!-- Laptop screen outline -->
+  <rect x="7" y="9" width="18" height="12" rx="1.5" fill="#10b981" opacity="0.3"/>
+  <rect x="7" y="9" width="18" height="12" rx="1.5" stroke="#34d399" stroke-width="1.5" fill="none"/>
+  <!-- Code lines on screen -->
+  <line x1="10" y1="13" x2="15" y2="13" stroke="#6ee7b7" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="10" y1="16" x2="18" y2="16" stroke="#6ee7b7" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="10" y1="19" x2="13" y2="19" stroke="#6ee7b7" stroke-width="1.2" stroke-linecap="round"/>
+</svg>
