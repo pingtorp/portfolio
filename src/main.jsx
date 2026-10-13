@@ -12,7 +12,7 @@ class ErrorBoundary extends React.Component {
     return { hasError: true, error };
   }
   componentDidCatch() {
-    // Error silently caught — no stack details exposed in production
+    // Error silently caught - no stack details exposed in production
   }
   render() {
     if (this.state.hasError) {

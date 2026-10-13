@@ -4,25 +4,40 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>R. P. Abhijith | Software Engineer</title>
+    <title>R. P. Abhijith | Senior Software Engineer</title>
 
     <!-- SEO -->
-    <meta name="description" content="R. P. Abhijith — Software Engineer & React JS Specialist with 3+ years building pixel-perfect, scalable web applications. Open to full-time and freelance roles." />
-    <meta name="keywords" content="R. P. Abhijith, Software Engineer, React JS, Frontend Developer, Kerala, Portfolio" />
+    <meta name="description" content="R. P. Abhijith — Senior Software Engineer with 4+ years in React.js, TypeScript, real-time FinTech applications and AI-first engineering with Claude Code. Open to full-time and freelance roles." />
+    <meta name="keywords" content="R. P. Abhijith, Senior Software Engineer, React JS, TypeScript, FinTech, WebSocket, Kafka, Claude Code, AI-First Engineering, Frontend Developer, Kerala, Portfolio" />
     <meta name="author" content="R. P. Abhijith" />
 
     <!-- Open Graph (LinkedIn, WhatsApp, Facebook previews) -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="R. P. Abhijith | Software Engineer" />
-    <meta property="og:description" content="React JS Specialist with 3+ years of experience building scalable lab-based products, dashboards, and web apps." />
+    <meta property="og:title" content="R. P. Abhijith | Senior Software Engineer" />
+    <meta property="og:description" content="Senior Software Engineer with 4+ years of experience building real-time FinTech platforms, dashboards and web apps with React.js, TypeScript and AI-first engineering." />
     <meta property="og:image" content="https://rpabhijith.vercel.app/profile.jpeg" />
     <meta property="og:url" content="https://rpabhijith.vercel.app" />
 
     <!-- Twitter / X card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="R. P. Abhijith | Software Engineer" />
-    <meta name="twitter:description" content="React JS Specialist — building pixel-perfect, scalable digital experiences." />
+    <meta name="twitter:title" content="R. P. Abhijith | Senior Software Engineer" />
+    <meta name="twitter:description" content="Senior Software Engineer — React.js, TypeScript, real-time FinTech and AI-first engineering." />
     <meta name="twitter:image" content="/profile.jpeg" />
+    <meta name="theme-color" content="#09090b" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Apply saved / system theme before first paint to avoid a flash -->
+    <script>
+      (function () {
+        var theme;
+        try { theme = localStorage.getItem('theme'); } catch (e) {}
+        if (!theme) theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        if (theme === 'dark') document.documentElement.classList.add('dark');
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

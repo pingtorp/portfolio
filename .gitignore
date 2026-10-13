@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local backup of the pre-redesign site
+portfolio-backup-before-redesign.zip

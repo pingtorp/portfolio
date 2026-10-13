@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 export default {
   content: [
     "./index.html",
@@ -8,17 +10,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        lightBg: '#f8fafc',
-        darkBg: '#092014',
-        primaryGreen: '#10b981',
-        secondaryGreen: '#34d399',
-        lightGreen: '#6ee7b7',
+        bg: token('bg'),
+        surface: token('surface'),
+        elevated: token('elevated'),
+        line: token('line'),
+        fg: token('fg'),
+        muted: token('muted'),
+        subtle: token('subtle'),
+        accent: token('accent'),
+        'accent-fg': token('accent-fg'),
       },
       fontFamily: {
-        sans: ['Space Grotesk', 'sans-serif'],
+        sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+      },
+      maxWidth: {
+        page: '72rem',
+      },
+      letterSpacing: {
+        tightest: '-0.04em',
       },
     },
   },
   plugins: [],
 }
-// Trigger Vite Reload

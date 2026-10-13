@@ -1,23 +1,42 @@
 /* EDIT DATA */
 import { FaReact, FaNodeJs, FaPython, FaHtml5, FaCss3Alt, FaBootstrap, FaGitAlt, FaJira, FaDatabase } from 'react-icons/fa';
-import { SiJavascript, SiTypescript, SiPhp, SiMongodb, SiSelenium } from 'react-icons/si';
+import { SiJavascript, SiTypescript, SiPhp, SiMongodb, SiSelenium, SiApachekafka, SiPostgresql, SiClaude, SiTradingview } from 'react-icons/si';
+import { TbPlugConnected, TbApi, TbRobot, TbBrain } from 'react-icons/tb';
 
 export const portfolioData = {
   personal: {
     name: "R. P. Abhijith",
-    role: "Software Engineer · React JS Specialist",
-    tagline: "Building pixel-perfect, engaging, and accessible digital experiences.",
-    about: "I am a passionate Software Engineer specialized in React JS with a knack for creating intuitive, dynamic user experiences. With over 3 years of experience spanning frontend, backend, and machine learning, I strive to build scalable products that solve real-world problems.",
+    role: "Senior Software Engineer · React.js · AI-First Engineering · FinTech",
+    title: "Senior Software Engineer",
+    headline: "I build real‑time FinTech interfaces — and ship them AI-first.",
+    tagline: "4+ years turning complex, data-intensive workflows into fast, reliable React.js products — from live trading and backtesting platforms to banking and healthcare dashboards.",
+    location: "Trivandrum, Kerala, India",
+    current: { company: "Smart Touch AI", product: "ZENXO — AI trading & backtesting platform" },
+    about: "I am a Senior Software Engineer with 4+ years of experience specializing in React.js, TypeScript, real-time web applications and AI-first software engineering. I build FinTech platforms for market data, strategy backtesting and live trading using WebSockets, Kafka and TradingView, and work hands-on with AI-agent-driven development using Claude Code — from architecture and implementation to testing, code review and production delivery.",
     email: "rpabhijith.dev@gmail.com",  // replace with your chosen portfolio email
     linkedin: "linkedin.com/in/abhijithrp",
     github: "github.com/pingtorp",
     languages: ["English", "Malayalam"],
   },
   stats: [
-    { num: Math.floor((new Date() - new Date('2022-07-01')) / (1000 * 60 * 60 * 24 * 365)), label: "Years Experience" },
-    { num: 5, label: "Major Projects" },
-    { num: 0, label: "Unresolved Bugs" },
-    { num: 95, label: "Accuracy Rate" }
+    { value: `${Math.floor((new Date() - new Date('2022-07-01')) / (1000 * 60 * 60 * 24 * 365))}+`, label: "Years shipping production software" },
+    { value: "8", label: "Products & projects delivered" },
+    { value: "40+", label: "Branches running dashboards I built" },
+    { value: "60%", label: "Faster report analysis on a microfinance dashboard" }
+  ],
+  highlights: [
+    {
+      title: "Real-time FinTech interfaces",
+      desc: "Strategy builders, backtesting and live-trading UIs wired to WebSockets, Kafka streams and TradingView charts."
+    },
+    {
+      title: "AI-first engineering",
+      desc: "Claude Code and multi-agent workflows across the SDLC — I own the architecture, validation and production quality."
+    },
+    {
+      title: "Ownership & delivery",
+      desc: "Led projects and a 4-member dev/QA team end to end — requirements, UI architecture, integration, testing and release."
+    }
   ],
   skills: [
     { icon: <FaReact />, name: "React JS", category: "Frontend", level: 90 },
@@ -30,22 +49,44 @@ export const portfolioData = {
     { icon: <SiPhp />, name: "PHP", category: "Backend", level: 70 },
     { icon: <SiMongodb />, name: "MongoDB", category: "Database", level: 75 },
     { icon: <FaDatabase />, name: "SQL", category: "Database", level: 85 },
+    { icon: <SiPostgresql />, name: "PostgreSQL", category: "Database", level: 80 },
+    { icon: <TbPlugConnected />, name: "WebSocket", category: "Real-Time & APIs", level: 85 },
+    { icon: <SiApachekafka />, name: "Kafka", category: "Real-Time & APIs", level: 75 },
+    { icon: <TbApi />, name: "REST APIs", category: "Real-Time & APIs", level: 90 },
+    { icon: <SiTradingview />, name: "TradingView", category: "Real-Time & APIs", level: 80 },
     { icon: <FaGitAlt />, name: "Git", category: "Tools & DevOps", level: 85 },
     { icon: <FaJira />, name: "Jira", category: "Tools & DevOps", level: 80 },
-    { icon: <SiSelenium />, name: "Selenium", category: "Testing", level: 75 },
-    { icon: <FaReact />, name: "OCR/ML", category: "ML/AI", level: 70 }
+    { icon: <SiSelenium />, name: "Selenium", category: "Tools & DevOps", level: 75 },
+    { icon: <TbBrain />, name: "OCR/ML", category: "ML/AI", level: 70 },
+    { icon: <SiClaude />, name: "Claude Code", category: "ML/AI", level: 90 },
+    { icon: <TbRobot />, name: "AI Agents / Multi-Agent", category: "ML/AI", level: 85 }
   ],
   experience: [
+    {
+      role: "Senior Software Engineer",
+      company: "Smart Touch AI, Trivandrum, Kerala",
+      date: "Aug 2025 – Present",
+      desc: "Primary UI Developer for ZENXO, an AI-powered platform for strategy creation, historical backtesting and live execution in real-market conditions, following an AI-first software engineering methodology.",
+      bullets: [
+        "Primary UI Developer for ZENXO — architected and developed the complete React.js frontend covering strategy configuration, backtesting workflows, real-time trading interfaces and live execution.",
+        "Integrated the frontend with Java backend services, WebSockets, Kafka-based real-time data flows and TradingView charting to support data-intensive live-trading workflows.",
+        "Follow an AI-first engineering methodology using Claude Code and codebase-aware AI agents — translating BRDs and designs into structured prompts and owning decisions from architecture through validation, testing and production delivery.",
+        "Use multi-agent / swarm workflows across the SDLC for implementation, testing, code review, debugging and performance optimization, feeding defects back for correction and re-validation before deployment.",
+        "Developed a short-term AI-based market price prediction model in Python to predict the next 1-minute price, evaluated with tick-by-tick NSE and BSE data and historical backtesting."
+      ],
+      tech: ["React JS", "TypeScript", "WebSocket", "Kafka", "TradingView", "Java Integration", "Python", "Claude Code", "AI Agents"]
+    },
     {
       role: "Software Engineer",
       company: "Trizent Technologies Pvt. Ltd, Trivandrum, Kerala",
       date: "July 2022 – July 2025 (3 years)",
-      desc: "Proven track record as a Development Lead, overseeing the entire development lifecycle from inception to final deployment. Specializing in React.js, led innovative lab-based product development initiatives integrating cutting-edge technologies to ensure seamless user experiences.",
+      desc: "Developed production web applications and reusable UI components with React.js, leading selected projects and coordinating a 4-member development/QA team across finance, laboratory and healthcare use cases.",
       bullets: [
-        "Demonstrated adaptability by undertaking various roles: UI development, API design & development, team leadership, project testing, bug fixing, CSS resolution, web development, and seamless UI/backend integration.",
-        "Proven track record as Development Lead — overseeing full lifecycle from inception to deployment, specializing in React.js lab-based products with cutting-edge technology integration.",
-        "Served as Supervising Developer — overseeing and mentoring interns across projects, providing hands-on guidance to cultivate skills and foster growth in software development.",
-        "Actively crafted user interfaces for client websites using HTML, CSS, Bootstrap, React.js, and PHP. Created responsive designs for mobile applications and developed prototypes for web projects."
+        "Developed production web applications and reusable UI components using React.js, JavaScript, HTML, CSS and Bootstrap, with REST API and backend integration.",
+        "Led selected projects and coordinated a 4-member development/QA team, handling implementation, debugging, testing, client feedback, Git workflows and technical documentation.",
+        "Developed business applications and dashboards supporting 40+ branches, 2,000+ customer records and 1,000+ patients/clinics across finance, laboratory and healthcare use cases.",
+        "Optimized UI rendering, asynchronous data fetching and responsive workflows to improve application performance and user experience.",
+        "Worked across the development lifecycle including UI architecture, API integration, testing, bug fixing, production support and client requirement implementation."
       ],
       tech: ["React JS", "TypeScript", "SQL", "Node JS", "PHP", "HTML", "CSS", "Bootstrap", "Tesseract OCR", "MongoDB", "Git", "JIRA", "Mantis"]
     },
@@ -73,6 +114,36 @@ export const portfolioData = {
     }
   ],
   projects: [
+    {
+      title: "ZENXO — AI Trading & Backtesting Platform",
+      role: "Primary UI Developer · Smart Touch AI",
+      desc: "AI-powered platform for strategy creation, historical backtesting and live execution in real-market conditions, with a React.js frontend integrated with Java services, WebSockets, Kafka and TradingView.",
+      bullets: [
+        "Architected and developed the complete React.js frontend covering strategy configuration, backtesting workflows, real-time trading interfaces and live execution.",
+        "Integrated the frontend with Java backend services, WebSockets, Kafka-based real-time data flows and TradingView charting for data-intensive trading workflows.",
+        "Built with an AI-first methodology — Claude Code and multi-agent workflows for implementation, testing, code review and production delivery."
+      ],
+      metrics: "Strategy creation · Historical backtesting · Live execution",
+      tech: ["React JS", "TypeScript", "WebSocket", "Kafka", "TradingView", "Claude Code"],
+      github: null,
+      demo: null,
+      featured: true
+    },
+    {
+      title: "AI-Based Market Price Prediction",
+      role: "Model Developer · Smart Touch AI",
+      desc: "Short-term AI-based model that predicts the next 1-minute market price from historical and market data, evaluated on tick-by-tick NSE and BSE data.",
+      bullets: [
+        "Developed a short-term AI-based market price prediction model in Python to predict the next 1-minute price from historical and market data.",
+        "Worked with tick-by-tick NSE and BSE market data collected for model evaluation.",
+        "Performed historical-data backtesting to assess prediction behavior."
+      ],
+      metrics: "1-minute horizon · Tick-by-tick NSE/BSE data · Historical backtesting",
+      tech: ["Python", "Machine Learning", "NSE/BSE Market Data", "Backtesting"],
+      github: null,
+      demo: null,
+      featured: true
+    },
     {
       title: "Microfinance Banking WebApp",
       role: "UI Developer",
@@ -166,7 +237,7 @@ export const portfolioData = {
   ],
   education: [
     {
-      degree: "B.Tech (ECE/CSE)",
+      degree: "B.Tech — Computer Science & Engineering",
       institution: "College of Engineering Aranmula, Pathanamthitta",
       year: "2018–2022",
       score: "8.2 CGPA",

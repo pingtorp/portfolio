@@ -1,89 +1,69 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { GraduationCap, Award } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
-import { GraduationCap } from 'lucide-react';
+import Section, { Reveal } from './ui/Section';
 
 const Education = () => {
-  const { education } = portfolioData;
-
-  const containerVariants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.2 } },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8, y: 30 },
-    visible: { opacity: 1, scale: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } },
-  };
+  const { education, achievements } = portfolioData;
+  const [degree, ...schooling] = education;
 
   return (
-    <section className="py-12 relative bg-lightBg dark:bg-darkBg/95">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Section id="education" index="05" eyebrow="Education & recognition" title="Foundations.">
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
+        <Reveal className="card flex flex-col p-6 sm:p-8">
+          <div className="flex items-start justify-between gap-4">
+            <span className="grid h-10 w-10 place-items-center rounded-lg bg-accent/10 text-accent">
+              <GraduationCap size={20} />
+            </span>
+            <span className="font-mono text-xs text-subtle">{degree.year}</span>
+          </div>
+          <h3 className="mt-6 text-xl sm:text-2xl font-semibold tracking-tight text-fg">{degree.degree}</h3>
+          <p className="mt-1 text-muted">{degree.institution}</p>
+          <p className="mt-4 text-sm font-semibold text-accent">CGPA {degree.score.replace(/\s*CGPA/i, '')} / 10</p>
+          {degree.note && <p className="mt-4 text-sm leading-relaxed text-muted">{degree.note}</p>}
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-8"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold font-sans inline-block relative group">
-            <span className="gradient-text">Education</span>
-            <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-secondaryGreen to-primaryGreen transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-          </h2>
-        </motion.div>
-
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-        >
-          {education.map((item, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="relative group h-full"
-            >
-              {/* Outer glow effect that appears on hover */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primaryGreen to-secondaryGreen rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300 -z-10"></div>
-              
-              <div className="glass h-full p-6 rounded-2xl border border-slate-300 dark:border-white/10 hover:border-secondaryGreen/40 transition-colors flex flex-col cursor-crosshair relative z-10 bg-lightBg dark:bg-darkBg/80">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-primaryGreen/20 text-primaryGreen rounded-xl flex items-center justify-center border border-primaryGreen/30 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
-                    <GraduationCap size={20} />
-                  </div>
-                  <span className="inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-gray-300 text-xs font-mono rounded-full">
-                    {item.year}
+          {schooling.length > 0 && (
+            <ul className="mt-auto pt-8 space-y-3">
+              {schooling.map((item) => (
+                <li key={item.degree} className="flex items-baseline justify-between gap-4 border-t border-line pt-3 text-sm">
+                  <span>
+                    <span className="font-medium text-fg">{item.degree}</span>
+                    <span className="block text-subtle">{item.institution}</span>
                   </span>
-                </div>
+                  <span className="whitespace-nowrap text-right">
+                    <span className="font-medium text-fg">{item.score}</span>
+                    <span className="block font-mono text-xs text-subtle">{item.year}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </Reveal>
 
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1 leading-tight group-hover:text-primaryGreen transition-colors">{item.degree}</h3>
-                <h4 className="text-sm text-slate-600 dark:text-gray-400 font-medium mb-4 relative pb-2">
-                  {item.institution}
-                  <div className="absolute left-0 -bottom-0 w-8 h-0.5 bg-secondaryGreen/50 group-hover:w-full transition-all duration-300"></div>
-                </h4>
-
-                <div className="mt-auto flex justify-between items-end">
-                  <div className="flex flex-col">
-                    <span className="text-xs text-slate-500 dark:text-gray-500 uppercase tracking-widest font-semibold mb-0.5">Score</span>
-                    <span className="text-xl font-bold text-secondaryGreen drop-shadow-[0_0_8px_rgba(93,217,184,0.5)]">
-                      {item.score}
-                    </span>
+        <Reveal delay={0.08} className="card p-6 sm:p-8">
+          <div className="flex items-center gap-3">
+            <span className="grid h-10 w-10 place-items-center rounded-lg bg-accent/10 text-accent">
+              <Award size={20} />
+            </span>
+            <h3 className="text-base font-semibold text-fg">Honors & awards</h3>
+          </div>
+          <ul className="mt-6 space-y-5">
+            {achievements.map((item) => (
+              <li key={item.title} className="flex gap-4">
+                <span aria-hidden="true" className="text-2xl leading-none">{item.icon}</span>
+                <div className="flex-1">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <p className="font-medium text-fg">{item.title}</p>
+                    <span className="font-mono text-xs text-subtle">{item.year}</span>
                   </div>
+                  <p className="mt-0.5 text-sm text-muted">{item.org}</p>
                 </div>
-
-                {item.note && (
-                  <p className="mt-3 pt-3 border-t border-slate-300 dark:border-white/10 text-xs text-slate-600 dark:text-gray-400 font-light hidden md:block group-hover:text-slate-700 dark:group-hover:text-gray-300 transition-colors">
-                    {item.note}
-                  </p>
-                )}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
-    </section>
+    </Section>
   );
 };
 
