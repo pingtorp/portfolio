@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Download, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
@@ -13,6 +13,10 @@ const fadeUp = (delay) => ({
 const Hero = () => {
   const { name, title, headline, tagline, location, current, email, linkedin, github } = portfolioData.personal;
   const { stats } = portfolioData;
+  const sectionRef = useRef(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] });
+  const portraitY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -28]);
 
   const socials = [
     { icon: Linkedin, href: `https://${linkedin}`, label: 'LinkedIn' },
@@ -21,7 +25,7 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="relative overflow-hidden pt-28 sm:pt-36 pb-16 sm:pb-20">
+    <section ref={sectionRef} id="home" className="relative overflow-hidden pt-28 sm:pt-36 pb-16 sm:pb-20">
       {/* Backdrop: masked grid + soft accent glow */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-grid mask-fade opacity-70" />
       <div aria-hidden="true" className="pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[880px] -translate-x-1/2 rounded-full bg-accent/15 blur-[120px]" />
@@ -73,7 +77,7 @@ const Hero = () => {
                     target={href.startsWith('mailto') ? undefined : '_blank'}
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="grid h-10 w-10 place-items-center rounded-full text-muted hover:text-fg hover:bg-elevated transition-colors"
+                    className="grid h-10 w-10 place-items-center rounded-full text-muted transition-all duration-200 hover:-translate-y-0.5 hover:bg-elevated hover:text-fg active:translate-y-0"
                   >
                     <Icon size={18} />
                   </a>
@@ -87,15 +91,19 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.15, ease }}
-            className="relative mx-auto w-full max-w-[22rem] lg:max-w-none"
+            style={{ y: portraitY }}
+            className="relative mx-auto w-full max-w-[22rem] transform-gpu will-change-transform lg:max-w-none"
           >
             <div className="card relative overflow-hidden p-2 shadow-2xl shadow-black/10 dark:shadow-black/40">
-              <img
-                src="/profile.jpeg"
-                alt={`Portrait of ${name}`}
-                className="aspect-[4/5] w-full rounded-xl object-cover object-top"
-                fetchPriority="high"
-              />
+              <picture className="block">
+                <source srcSet="/profile.webp" type="image/webp" />
+                <img
+                  src="/profile.jpeg"
+                  alt={`Portrait of ${name}`}
+                  className="aspect-[4/5] w-full rounded-xl object-cover object-top"
+                  fetchPriority="high"
+                />
+              </picture>
               <div className="absolute inset-x-4 bottom-4 rounded-xl border border-white/10 bg-black/55 p-4 text-white backdrop-blur-md">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/60">Currently</p>
                 <p className="mt-1 text-sm font-semibold">{title} @ {current.company}</p>

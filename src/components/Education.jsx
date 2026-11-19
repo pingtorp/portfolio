@@ -10,7 +10,7 @@ const Education = () => {
   return (
     <Section id="education" index="05" eyebrow="Education & recognition" title="Foundations.">
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-        <Reveal className="card flex flex-col p-6 sm:p-8">
+        <Reveal className="card hover-lift flex flex-col p-6 sm:p-8">
           <div className="flex items-start justify-between gap-4">
             <span className="grid h-10 w-10 place-items-center rounded-lg bg-accent/10 text-accent">
               <GraduationCap size={20} />
@@ -40,7 +40,7 @@ const Education = () => {
           )}
         </Reveal>
 
-        <Reveal delay={0.08} className="card p-6 sm:p-8">
+        <Reveal delay={0.08} className="card hover-lift p-6 sm:p-8">
           <div className="flex items-center gap-3">
             <span className="grid h-10 w-10 place-items-center rounded-lg bg-accent/10 text-accent">
               <Award size={20} />

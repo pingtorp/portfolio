@@ -1,7 +1,7 @@
 import React from 'react';
 import { Zap, Sparkles, Users } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
-import Section, { Reveal } from './ui/Section';
+import Section, { Reveal, Stagger, StaggerItem } from './ui/Section';
 
 const highlightIcons = [Zap, Sparkles, Users];
 
@@ -33,20 +33,20 @@ const About = () => {
             <p className="text-lg sm:text-xl leading-relaxed text-fg/90 text-pretty">{about}</p>
           </Reveal>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          <Stagger className="mt-10 grid gap-4 sm:grid-cols-3">
             {highlights.map((item, i) => {
               const Icon = highlightIcons[i % highlightIcons.length];
               return (
-                <Reveal key={item.title} delay={0.08 * i} className="card p-5 transition-colors hover:border-accent/40">
+                <StaggerItem key={item.title} className="card hover-lift p-5">
                   <span className="mb-4 grid h-9 w-9 place-items-center rounded-lg bg-accent/10 text-accent">
                     <Icon size={18} />
                   </span>
                   <h3 className="text-sm font-semibold text-fg">{item.title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted">{item.desc}</p>
-                </Reveal>
+                </StaggerItem>
               );
             })}
-          </div>
+          </Stagger>
         </div>
       </div>
     </Section>

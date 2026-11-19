@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, Github, Lock } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
-import Section, { Reveal } from './ui/Section';
+import Section, { Reveal, Stagger, StaggerItem } from './ui/Section';
 
 const splitMetrics = (metrics) => (metrics ? metrics.split('·').map((m) => m.trim()).filter(Boolean) : []);
 
@@ -12,7 +12,7 @@ const RepoLink = ({ project }) =>
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center gap-1 text-xs font-medium text-muted hover:text-fg transition-colors"
-      aria-label={`${project.title} on GitHub`}
+      aria-label={`Code for ${project.title} on GitHub`}
     >
       <Github size={14} /> Code <ArrowUpRight size={12} />
     </a>
@@ -35,13 +35,12 @@ const Projects = () => {
       title="Products I've designed, built and shipped."
       intro="Most of my work is commercial and closed-source, so here's what each project does, my role, and the measurable outcome."
     >
-      <div className="grid gap-5 md:grid-cols-2">
-        {featured.map((project, index) => (
-          <Reveal
+      <Stagger className="grid gap-5 md:grid-cols-2">
+        {featured.map((project) => (
+          <StaggerItem
             as="article"
             key={project.title}
-            delay={0.06 * (index % 2)}
-            className="card group relative flex flex-col overflow-hidden p-6 sm:p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/30"
+            className="card group relative flex flex-col overflow-hidden p-6 sm:p-7 hover-lift hover:shadow-xl"
           >
             <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-accent/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 
@@ -80,21 +79,20 @@ const Projects = () => {
                 ))}
               </ul>
             </div>
-          </Reveal>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
 
       {rest.length > 0 && (
         <>
           <Reveal>
             <h3 className="eyebrow mt-16 mb-4">More projects</h3>
           </Reveal>
-          <ul className="card divide-y divide-line overflow-hidden">
-            {rest.map((project, index) => (
-              <Reveal
+          <Stagger as="ul" className="card divide-y divide-line overflow-hidden">
+            {rest.map((project) => (
+              <StaggerItem
                 as="li"
                 key={project.title}
-                delay={0.04 * index}
                 className="grid gap-3 p-5 sm:p-6 transition-colors hover:bg-elevated/50 md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)_auto] md:items-start md:gap-8"
               >
                 <div>
@@ -109,9 +107,9 @@ const Projects = () => {
                 <div className="md:pt-0.5">
                   <RepoLink project={project} />
                 </div>
-              </Reveal>
+              </StaggerItem>
             ))}
-          </ul>
+          </Stagger>
         </>
       )}
     </Section>

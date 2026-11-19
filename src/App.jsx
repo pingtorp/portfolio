@@ -9,6 +9,7 @@ import Skills from './components/Skills';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollProgress from './components/ui/ScrollProgress';
 
 // index.html applies the saved/system theme before paint; start from what it chose
 const initialDark = () => document.documentElement.classList.contains('dark');
@@ -34,6 +35,7 @@ function App() {
       >
         Skip to content
       </a>
+      <ScrollProgress />
       <Navbar isDarkMode={isDarkMode} toggleTheme={() => setIsDarkMode((d) => !d)} />
       <main id="main">
         <Hero />

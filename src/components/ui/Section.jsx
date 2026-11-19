@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const ease = [0.21, 0.47, 0.32, 0.98];
+
 export const Reveal = ({ children, delay = 0, className = '', as = 'div' }) => {
   const Tag = motion[as];
   return (
@@ -8,8 +10,41 @@ export const Reveal = ({ children, delay = 0, className = '', as = 'div' }) => {
       className={className}
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.5, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.5, delay, ease }}
+    >
+      {children}
+    </Tag>
+  );
+};
+
+export const Stagger = ({ children, className = '', delay = 0, stagger = 0.07, as = 'div' }) => {
+  const Tag = motion[as];
+  return (
+    <Tag
+      className={className}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.12 }}
+      variants={{
+        hidden: {},
+        show: { transition: { delayChildren: delay, staggerChildren: stagger } },
+      }}
+    >
+      {children}
+    </Tag>
+  );
+};
+
+export const StaggerItem = ({ children, className = '', as = 'div' }) => {
+  const Tag = motion[as];
+  return (
+    <Tag
+      className={className}
+      variants={{
+        hidden: { opacity: 0, y: 16 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.45, ease } },
+      }}
     >
       {children}
     </Tag>

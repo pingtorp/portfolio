@@ -11,8 +11,8 @@ const Footer = () => {
         <p>
           © {new Date().getFullYear()} <span className="font-medium text-fg">{name}</span> · {title}
         </p>
-        <a href="#home" className="inline-flex items-center gap-1.5 hover:text-fg transition-colors">
-          Back to top <ArrowUp size={14} />
+        <a href="#home" className="group inline-flex items-center gap-1.5 hover:text-fg transition-colors">
+          Back to top <ArrowUp size={14} className="transition-transform duration-200 group-hover:-translate-y-0.5" />
         </a>
       </div>
     </footer>

@@ -57,7 +57,7 @@ const Contact = () => {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center gap-4 rounded-xl border border-line bg-bg/60 p-4 transition-colors hover:border-accent/40"
+                    className="group flex items-center gap-4 rounded-xl border border-line bg-bg/60 p-4 hover-lift"
                   >
                     <span className="grid h-10 w-10 place-items-center rounded-lg bg-elevated text-fg">
                       <Icon size={18} />
@@ -74,7 +74,7 @@ const Contact = () => {
                 <a
                   href="/resume.pdf"
                   download="Abhijith_RP_Resume.pdf"
-                  className="group flex items-center gap-4 rounded-xl border border-line bg-bg/60 p-4 transition-colors hover:border-accent/40"
+                  className="group flex items-center gap-4 rounded-xl border border-line bg-bg/60 p-4 hover-lift"
                 >
                   <span className="grid h-10 w-10 place-items-center rounded-lg bg-elevated text-fg">
                     <Download size={18} />

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { portfolioData } from '../data/portfolioData';
-import Section, { Reveal } from './ui/Section';
+import Section, { Stagger, StaggerItem } from './ui/Section';
 
 // Display order and labels; categories not listed here are appended at the end
 const categoryMeta = {
@@ -33,24 +33,24 @@ const Skills = () => {
       title="The stack I work in every day."
       intro="Deep in React and TypeScript, comfortable across the stack, and fluent in AI-agent workflows that compress delivery time without lowering the bar."
     >
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {groups.map(([category, list], i) => (
-          <Reveal key={category} delay={0.04 * i} className="card p-5 sm:p-6">
+      <Stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {groups.map(([category, list]) => (
+          <StaggerItem key={category} className="card hover-lift p-5 sm:p-6">
             <h3 className="eyebrow mb-4">{categoryMeta[category] ?? category}</h3>
             <ul className="flex flex-wrap gap-2">
               {list.map((skill) => (
                 <li
                   key={skill.name}
-                  className="inline-flex items-center gap-2 rounded-lg border border-line bg-elevated/50 px-3 py-1.5 text-sm font-medium text-fg transition-colors hover:border-accent/40"
+                  className="inline-flex items-center gap-2 rounded-lg border border-line bg-elevated/50 px-3 py-1.5 text-sm font-medium text-fg transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40"
                 >
                   <span aria-hidden="true" className="text-[0.95rem] text-muted">{skill.icon}</span>
                   {skill.name}
                 </li>
               ))}
             </ul>
-          </Reveal>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </Section>
   );
 };

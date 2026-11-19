@@ -35,14 +35,20 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
   const ThemeIcon = isDarkMode ? Sun : Moon;
 
   return (
-    <header
+    <motion.header
+      initial={{ opacity: 0, y: -12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled || isOpen ? 'bg-bg/80 backdrop-blur-xl border-b border-line' : 'border-b border-transparent'
       }`}
     >
       <nav className="container-page flex h-16 items-center justify-between" aria-label="Primary">
         <a href="#home" className="flex items-center gap-2.5 group" onClick={() => setIsOpen(false)}>
-          <img src="/profile.jpeg" alt="" className="h-8 w-8 rounded-full object-cover object-top ring-1 ring-line" />
+          <picture className="block">
+            <source srcSet="/profile.webp" type="image/webp" />
+            <img src="/profile.jpeg" alt="" className="h-8 w-8 rounded-full object-cover object-top ring-1 ring-line transition-transform duration-300 group-hover:scale-105" />
+          </picture>
           <span className="text-sm font-semibold tracking-tight text-fg">
             R. P. Abhijith
           </span>
@@ -134,7 +140,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 };
 

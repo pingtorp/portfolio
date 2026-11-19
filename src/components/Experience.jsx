@@ -1,6 +1,6 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
-import Section, { Reveal } from './ui/Section';
+import Section, { Stagger, StaggerItem } from './ui/Section';
 
 const Experience = () => {
   const { experience } = portfolioData;
@@ -13,15 +13,14 @@ const Experience = () => {
       title="Where I've built and shipped."
       intro="From lab and banking dashboards to an AI-powered trading platform — owning the frontend from architecture through production."
     >
-      <ol className="relative">
-        {experience.map((exp, index) => {
+      <Stagger as="ol" className="relative">
+        {experience.map((exp) => {
           const isCurrent = /present/i.test(exp.date);
           const [company, ...place] = exp.company.split(',');
           return (
-            <Reveal
+            <StaggerItem
               as="li"
               key={`${exp.role}-${exp.date}`}
-              delay={0.05 * index}
               className="group relative grid gap-4 border-t border-line py-10 first:border-t-0 first:pt-0 md:grid-cols-[14rem_minmax(0,1fr)] md:gap-12"
             >
               <div className="md:sticky md:top-24 md:self-start">
@@ -56,10 +55,10 @@ const Experience = () => {
                   ))}
                 </ul>
               </div>
-            </Reveal>
+            </StaggerItem>
           );
         })}
-      </ol>
+      </Stagger>
     </Section>
   );
 };

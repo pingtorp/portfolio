@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/geist-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('/fonts/geist-mono-latin.woff2') format('woff2');
+}
+
 /* Design tokens — RGB channels so Tailwind opacity modifiers work (e.g. bg-accent/10) */
 @layer base {
   :root {
@@ -12,7 +28,7 @@
     --fg: 9 9 11;
     --muted: 82 82 91;
     --subtle: 113 113 122;
-    --accent: 5 150 105;
+    --accent: 4 120 87;
     --accent-fg: 255 255 255;
     color-scheme: light;
   }
@@ -74,11 +90,15 @@
   }
 
   .btn-primary {
-    @apply btn bg-fg text-bg hover:opacity-90 active:scale-[0.98];
+    @apply btn bg-fg text-bg shadow-sm shadow-black/5 hover:-translate-y-0.5 hover:opacity-90 hover:shadow-lg hover:shadow-black/10 active:translate-y-0 active:scale-[0.98];
   }
 
   .btn-secondary {
-    @apply btn border border-line bg-surface text-fg hover:border-fg/30 hover:bg-elevated active:scale-[0.98];
+    @apply btn border border-line bg-surface text-fg hover:-translate-y-0.5 hover:border-fg/30 hover:bg-elevated active:translate-y-0 active:scale-[0.98];
+  }
+
+  .hover-lift {
+    @apply border border-line transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/30;
   }
 
   .link-underline {
