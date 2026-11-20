@@ -145,6 +145,37 @@ export const portfolioData = {
       featured: true
     },
     {
+      title: "Army Camp Supply Management System",
+      role: "Developer",
+      desc: "Supply management platform for an army camp that digitizes the manual food-supply workflow — from inventory collection and ordering to purchase tracking and headcount-based distribution.",
+      bullets: [
+        "Managed camp food supply under a head section by collecting inventory, generating order lists, and handling inventory purchase and tracking.",
+        "Distributed supplies based on exact head count to improve allocation accuracy and reduce manual errors.",
+        "Implemented weekly product listing and QR-based tracking with unique serial IDs for end-to-end traceability."
+      ],
+      metrics: "Headcount-based distribution · Weekly product planning · QR tracking with unique serial IDs",
+      tech: ["React JS", "Node JS", "SQL", "QR Code Tracking"],
+      github: null,
+      demo: null,
+      featured: true
+    },
+    {
+      title: "Investment Portfolio Management Platform",
+      role: "End-to-End Designer & Developer",
+      desc: "A portfolio management and tracking system built for a Dubai-based financial investment company to consolidate customer investments, manage stock purchases, and monitor portfolio performance through a single operational dashboard. Delivered as a complete POC flow and evolved into a live, working project used by the company.",
+      bullets: [
+        "Designed and developed an end-to-end platform to track funds collected from multiple customers and manage investment activity through stock purchasing and ongoing monitoring.",
+        "Built a centralized dashboard for an at-a-glance portfolio overview, with buy/sell workflows for stock options to support day-to-day investment operations.",
+        "Implemented reporting and analytics features including Excel and other downloadable reports, along with month-wise and year-wise graphical visualizations for performance tracking.",
+        "Presented the solution as a clickable POC/demo flow covering the full user journey, then carried it through to production as an actively used internal system."
+      ],
+      metrics: "End-to-end POC to production · Multi-customer portfolio tracking · Month/year performance analytics",
+      tech: ["React JS", "JavaScript", "REST APIs", "Chart.js", "Excel Export"],
+      github: null,
+      demo: null,
+      featured: true
+    },
+    {
       title: "Microfinance Banking WebApp",
       role: "UI Developer",
       desc: "Designed and deployed a real-time dashboard system for 40+ branch offices and 2,000+ customer records with responsive design and real-time data sync.",
@@ -173,6 +204,21 @@ export const portfolioData = {
       github: null,
       demo: null,
       featured: true
+    },
+    {
+      title: "Market Watch UI for Live Data",
+      role: "UI Developer",
+      desc: "A real-time market watch interface that consumes live exchange data and visualizes trading indicators to help users quickly interpret market conditions and act on signals.",
+      bullets: [
+        "Built a live market watch UI that streams exchange data in real time and presents it in a clear, actionable dashboard.",
+        "Plotted multiple technical indicators across signal levels from Strong Sell to Strong Buy, with each indicator derived from defined calculations and formulas.",
+        "Aggregated indicator support to generate an overall buy/sell signal, helping users assess market direction based on combined indicator strength."
+      ],
+      metrics: "Live exchange data · Multi-indicator signal levels (Strong Sell to Strong Buy) · Overall buy/sell signal",
+      tech: ["React JS", "WebSocket", "Real-Time Data", "Technical Indicators"],
+      github: null,
+      demo: null,
+      featured: false
     },
     {
       title: "Pregnancy Care App",
